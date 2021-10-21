@@ -16,9 +16,12 @@ config :takso, Takso.Repo,
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :takso, TaksoWeb.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4002],
+  http: [ip: {127, 0, 0, 1}, port: 4001],
   secret_key_base: "LKvJzAblNy6FDxXQxh/QiB+1i4Uo2jwpoV8lS0ubQQ2qV5rXyBcIzNieWMAsG95X",
-  server: false
+  server: true
+
+  config :hound, driver: "chrome_driver"
+  config :takso, sql_sandbox: true
 
 # In test we don't send emails.
 config :takso, Takso.Mailer, adapter: Swoosh.Adapters.Test
